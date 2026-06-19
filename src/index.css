@@ -1,0 +1,333 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Print header: hidden on screen, shown at top-right on each printed page */
+.print-header-modal {
+  display: none;
+}
+
+/* Modal print: only modal content + logo/name on each page */
+@media print {
+  body.printing-modal * {
+    visibility: hidden;
+  }
+  body.printing-modal .print-modal-root,
+  body.printing-modal .print-modal-root * {
+    visibility: visible;
+  }
+  body.printing-modal .print-header-modal {
+    display: flex !important;
+  }
+  body.printing-modal .print-modal-root {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+  body.printing-modal .print-modal-content {
+    padding-top: 50px;
+    padding-right: 180px;
+  }
+  body.printing-modal .print-header-modal {
+    position: fixed !important;
+    top: 10px !important;
+    right: 10px !important;
+    left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    visibility: visible !important;
+    z-index: 99999 !important;
+  }
+  body.printing-modal .print-header-modal img {
+    max-height: 36px !important;
+    width: auto !important;
+  }
+  body.printing-modal .print-header-modal .print-site-name {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #000 !important;
+  }
+  body.printing-modal .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* Shop page – responsive product cards & fixed button */
+@media (max-width: 768px) {
+  .shop-product-card {
+    flex-direction: column;
+  }
+  .shop-product-card__media {
+    flex: 0 0 auto !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  .shop-product-card__body {
+    padding: 16px 20px !important;
+  }
+  .shop-product-card__title {
+    font-size: 1.2rem !important;
+  }
+  .shop-quotation-sticky-wrap {
+    margin-top: 16px;
+    padding-bottom: 16px;
+  }
+  .shop-quotation-fixed-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* Product card: 2-line description clamp */
+.shop-product-card__desc--clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Product card: Select button transition */
+.shop-product-card__btn-select {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Product card: smooth hover for View More */
+.shop-product-card__btn-view-more {
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.shop-product-card__btn-view-more:hover {
+  background: rgba(215, 179, 154, 0.12);
+}
+
+/* Product detail modal: responsive & hover */
+.product-detail-modal-overlay {
+  animation: productModalFadeIn 0.2s ease-out;
+}
+.product-detail-modal-card {
+  animation: productModalSlideIn 0.25s ease-out;
+}
+.product-detail-modal-close:hover {
+  background: #e0e0e0 !important;
+}
+@keyframes productModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes productModalSlideIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@media (max-width: 576px) {
+  .product-detail-modal-card {
+    margin: 12px;
+    padding: 20px 16px 24px !important;
+  }
+  .product-detail-modal-close {
+    top: 12px !important;
+    right: 12px !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+/* Quick View modal: two-column on desktop, stacked on small screens */
+.product-detail-modal-card--quickview {
+  max-width: 920px;
+}
+/* Visible scrollbar + stable gutter for description + specification */
+.product-detail-modal__desc-scroll--scrollable {
+  overflow-y: scroll !important;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #c4c4c4 #f0f0f0;
+  -webkit-overflow-scrolling: touch;
+}
+.product-detail-modal__desc-scroll--scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+.product-detail-modal__desc-scroll--scrollable::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+.product-detail-modal__desc-scroll--scrollable::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 4px;
+}
+.product-detail-modal__desc-scroll--scrollable::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+@media (min-width: 769px) {
+  .product-detail-modal-card--quickview {
+    height: auto !important;
+    max-height: 94vh !important;
+    overflow: hidden;
+  }
+  .product-detail-modal-card--quickview .product-detail-modal__two-col {
+    align-items: start;
+    overflow: hidden;
+  }
+  .product-detail-modal-card--quickview .product-detail-modal__right {
+    overflow: hidden;
+  }
+  .product-detail-modal-card--quickview .product-detail-modal__slider-wrap {
+    max-height: min(72vh, 520px);
+  }
+}
+@media (max-width: 768px) {
+  .product-detail-modal-card--quickview {
+    max-height: min(92vh, calc(100dvh - 24px));
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 16px 16px 24px !important;
+    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    max-width: 100% !important;
+    overscroll-behavior: contain;
+  }
+  .product-detail-modal-card--quickview .product-detail-modal__two-col {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    min-height: 0;
+  }
+  .product-detail-modal-card--quickview .product-detail-modal__left {
+    position: static !important;
+    flex-shrink: 0;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    width: 100%;
+  }
+  .product-detail-modal-card--quickview .product-detail-modal__slider-wrap {
+    margin-bottom: 12px;
+    max-height: min(55vh, 420px);
+  }
+  .product-detail-modal-card--quickview .product-detail-modal__thumbnails {
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+  .product-detail-modal-card--quickview .product-detail-modal__right {
+    margin-top: 0;
+    padding-top: 0;
+    flex: 0 0 auto;
+    min-width: 0;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .product-detail-modal-card--quickview .product-detail-modal__right .product-detail-modal__title {
+    margin-top: 0;
+  }
+  /* Full description + specs flow in document; whole modal card scrolls (avoids clipped nested region on iOS) */
+  .product-detail-modal-card--quickview .product-detail-modal__desc-scroll--scrollable {
+    max-height: none !important;
+    overflow-y: visible !important;
+    overflow-x: hidden;
+    flex: 0 0 auto !important;
+    min-height: 0;
+    margin-top: 8px;
+    scrollbar-gutter: auto;
+  }
+}
+@media (max-width: 576px) {
+  .product-detail-modal-card--quickview .product-detail-modal__thumbnails button {
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+.product-detail-modal__spec-html ul {
+  margin: 0.5em 0;
+  padding-left: 1.25em;
+}
+.product-detail-modal__spec-html li {
+  margin: 0.25em 0;
+}
+.product-detail-modal__spec-html p {
+  margin: 0.35em 0;
+}
+
+/* Shop: inquiry success modal */
+.shop-inquiry-success-overlay {
+  backdrop-filter: blur(6px);
+  animation: inquiryOverlayFade 0.2s ease-out;
+}
+.shop-inquiry-success-card {
+  animation: inquiryCardPop 0.3s ease-out;
+}
+@keyframes inquiryOverlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes inquiryCardPop {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* My Quotations list – better contrast & visibility */
+.quotation-list-wrap .quotation-list-card {
+  border: 1px solid #d4d4d4;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.quotation-list-wrap .quotation-list-card:hover {
+  border-color: #0f172a;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.quotation-list-wrap .quotation-list-card:nth-child(odd) {
+  background: #fff;
+}
+.quotation-list-wrap .quotation-list-card:nth-child(even) {
+  background: #f5f2ef;
+}
+.quotation-list-wrap .quotation-list-id {
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 1.05rem;
+}
+.quotation-list-wrap .quotation-list-date {
+  color: #505050;
+  font-size: 0.9rem;
+  margin-left: 12px;
+}
+.quotation-list-wrap .quotation-list-total {
+  background: #0f172a;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.quotation-list-wrap .quotation-list-view {
+  color: #2c5282;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.quotation-list-wrap .quotation-list-view:hover {
+  color: #1a365d;
+  text-decoration: underline;
+}
+.quotation-list-wrap .quotation-list-card .border-top {
+  border-color: #e0e0e0 !important;
+}

@@ -1,0 +1,14 @@
+Options -MultiViews
+RewriteEngine On
+
+# If your site is served from a subfolder, set RewriteBase accordingly.
+RewriteBase /
+
+# Don't rewrite real files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rewrite everything else to React's entry point
+RewriteRule ^ index.html [L]
+

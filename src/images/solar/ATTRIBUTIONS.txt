@@ -1,0 +1,14 @@
+HelioSolar — stock imagery (royalty-free)
+
+Sources: Unsplash (unsplash.com/license) and Pexels (pexels.com/license).
+All images optimized for web delivery (resized JPEG, quality ~80–82).
+
+Curated set: rooftop PV, utility-scale solar, installation/engineering, and clean energy themes.
+Replace filenames below if you swap assets; keep this file updated for compliance.
+
+Hero / sliders: hero-1.jpg, hero-2.jpg, hero-3.jpg
+Solutions: sol-*.jpg
+Partners (seller cards): partner-01.jpg … partner-08.jpg
+Banners: banner-wide.jpg, banner-farm.jpg
+About: about-split.jpg, about-slide-*.jpg
+Testimonials: testimonial-*.jpg

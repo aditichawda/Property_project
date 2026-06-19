@@ -1,0 +1,22 @@
+# Infrio India - https://www.infrioindia.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Block sensitive/system paths
+Disallow: /admin/
+Disallow: /login/
+Disallow: /wp-admin/
+Disallow: /cgi-bin/
+
+# Allow CSS, JS, Images for proper rendering
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Sitemap location
+Sitemap: https://www.infrioindia.com/sitemap.xml
