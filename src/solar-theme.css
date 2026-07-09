@@ -145,6 +145,41 @@ a.get-in-touch-btn:hover {
   background-color: var(--solar-primary) !important;
 }
 
+.footer-social-round,
+.contact-social-round {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.footer-social-round a,
+.contact-social-round a {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #0f172a !important;
+  font-size: 18px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-social-round a:hover,
+.contact-social-round a:hover {
+  transform: translateY(-3px);
+  background: var(--solar-primary);
+  color: #fff !important;
+}
+
+.contact-social-round a {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
 /* Loader */
 .loading-area .loading-box .loading-pic img {
   filter: hue-rotate(-15deg) saturate(1.2);

@@ -134,8 +134,8 @@ class Navigation extends React.Component {
             </li>
           )}
           <li className="mobile-drawer-top-items">
-            <a href="mailto:info@infrioindia.com">
-              Mail Us : info@infrioindia.com
+            <a href="mailto:properties@infrioindia.com">
+              Mail Us : properties@infrioindia.com
             </a>
           </li>
           <li className="mobile-drawer-top-items">

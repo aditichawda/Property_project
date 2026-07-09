@@ -195,7 +195,7 @@ function ContactUs() {
                       </div>
                       <div className="icon-content">
                         <h5 className="m-t0">Email</h5>
-                        <p className="m-b0">info@infrioindia.com</p>
+                        <p className="m-b0">properties@infrioindia.com</p>
                       </div>
                     </div>
 
@@ -205,9 +205,13 @@ function ContactUs() {
                       </div>
                       <div className="icon-content">
                         <h5 className="m-t0">Address</h5>
-                        <p className="m-b0">Shop no 5, Iris Park, Indore</p>
+                        <p className="m-b0">
+                         1st floor, Above Swastik Plywood, 27, New Grain Mandi, Kota, 324005
+                        </p>
                       </div>
                     </div>
+
+                  
                   </div>
                 </div>
 

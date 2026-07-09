@@ -33,6 +33,20 @@ class Footer2 extends React.Component {
                     <p
                       style={{ whiteSpace: "pre-line" }}
                     >{`We are a passionate team dedicated to connecting buyers, sellers, and renters with their perfect property.`}</p>
+                    <div className="footer-social-round">
+                      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i className="fa fa-facebook" />
+                      </a>
+                      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i className="fa fa-instagram" />
+                      </a>
+                      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i className="fa fa-linkedin" />
+                      </a>
+                      <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i className="fa fa-youtube-play" />
+                      </a>
+                    </div>
                   </div>
                 </div>
                 {/* RESENT POST */}
@@ -139,8 +153,8 @@ class Footer2 extends React.Component {
                   <div className="widget widget_address_outer">
                     <h5 className="widget-title">Contact Us</h5>
                     <ul className="widget_address">
-                      <li>Shop no 5, Iris Park, Indore</li>
-                      <li>info@infrioindia.com</li>
+                      <li>1st floor, Above Swastik Plywood, 27, New Grain Mandi, Kota, 324005</li>
+                      <li>properties@infrioindia.com</li>
                       <li>(+91) 900-1457-000</li>
                       <li>(+91) 785-1820-559</li>
                     </ul>
@@ -151,17 +165,17 @@ class Footer2 extends React.Component {
             <div className="container">
               <div className="call-to-action-wrap">
                 <div className="row">
-                  {/* <div className="col-lg-7 col-md-6">
+                  <div className="col-lg-12 col-md-12">
                     <div className="call-to-action-left">
                       <h5 className="text-uppercase m-b10 m-t0">
-                        Subscribe to our Youtube channel!
+                        Subscribe to our YouTube channel!
                       </h5>
                       <span>
-                        Never Miss Anything From Infrio By Signing Up To Our
-                        Youtube channel.
+                        Never miss property updates, seller tips, and Infrio
+                        marketplace news.
                       </span>
                     </div>
-                  </div> */}
+                  </div>
                   {/* <div className="col-lg-5 col-md-6">
                                         <div className="call-to-action-right">
                                             <div className="widget_newsletter">

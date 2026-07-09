@@ -164,7 +164,7 @@ class Header2 extends React.Component {
                   style={{ fontSize: "15px", marginBottom: 0 }}
                 >
                   <li style={{ fontSize: "15px" }}>
-                    Mail Us : info@infrioindia.com
+                    Mail Us : properties@infrioindia.com
                   </li>
                   <li style={{ fontSize: "15px" }}>
                     Call Us : +91 90014 57000
