@@ -9,6 +9,7 @@ const locations = [
     description:
       "We are Infrio — a team of engineers, architects, and designers driven by one mission: to turn ideas into inspiring spaces. What started as a humble venture in 2014 has grown into a trusted name in architecture, interiors, and construction solutions.\nFounded by Mrs. Pooja Malav, a Civil Engineer from GSITS Indore, and strengthened by the expertise of Mr. Rajesh Malav, Infrio brings together creativity, precision, and execution excellence. With over 100 completed projects across homes, offices, and commercial buildings, we have built our reputation on quality, transparency, and innovation.\nAt Infrio, we don’t just design or build structures — we create experiences. Every project is a blend of thoughtful planning, smart engineering, and aesthetic detailing, tailored to meet our clients’ needs and aspirations.",
   },
+  
   {
     image: require("./../../images/property/home6.jpg"),
     title: "Our Vision",

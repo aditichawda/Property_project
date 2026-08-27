@@ -8178,8 +8178,8 @@ HEADER (top part of page)
 }
 
 .logo-header-inner img {
-	max-width: 100%;
-	max-height: 100%;
+	max-width: 75%;
+	max-height: 45%;
 }
 
 
@@ -8187,17 +8187,26 @@ HEADER (top part of page)
 	.logo-header {
 		width: 120px;
 	}
+	.logo-header-inner img {
+	max-width: 65%;
+	max-height: 81%;
+}
 }
 
 @media only screen and (max-width:480px) {
 	.logo-header {
 		width: 100px;
 	}
+	.logo-header-inner img {
+	max-width: 65%;
+	max-height: 81%;
+}
+
 }
 
 .logo-footer {
 	display: table;
-	width: 170px;
+	width: 150px;
 	height: 70px;
 	vertical-align: middle;
 	padding: 0px 0px 15px 0px;
@@ -8270,8 +8279,15 @@ padding:7px 0px;
 	margin-right: 5px;
 	vertical-align: middle;
 }
-
+@media only screen and (max-width:991px){
+	.logo-footer{
+		width: 120px;
+	}
+}
 @media only screen and (max-width:480px){
+		.logo-footer{
+		width: 86px;
+	}
 .nav-transparent .e-p-bx li{
 	display:block;
 	padding:3px 0px;
@@ -9220,7 +9236,7 @@ padding:7px 0px;
 }
 .nav-transparent .main-bar .container {
     padding: 0px 15px;
-    max-width: 100%;
+    /* max-width: 100%; */
 }
 
 .nav-transparent .top-bar .container {
@@ -13415,18 +13431,18 @@ background: #000;
 	bottom:0px;
 	right:15px;
 	top:0px;
-	min-height:300px;
+	height:490px;
 }
 
 
-.about-home-2{position:relative;z-index:1;padding:80px 40px 80px 40px;}
+.about-home-2{position:relative;z-index:1;padding:0px 10px 20px 10px;}
 .about-home-2:after{
 	content: "";
 	position: absolute;
 	top: 0px;
 	right: 0px;
 	width: 45%;
-	height: 100%;
+	height: 80%;
 	background-color: transparent;
 	border: 20px solid #dfdfdf;
 	

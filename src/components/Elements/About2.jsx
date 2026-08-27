@@ -1,16 +1,17 @@
 import React from "react";
 
-var bgimg1 = require("./../../images/property/about1.jpg");
+var bgimg1 = require("./../../images/property/property2.jpeg");
+var bgimg2 = require("./../../images/property/property1.png");
 
 class About2 extends React.Component {
   render() {
     return (
       <>
-        <div className="section-full mobile-page-padding p-t80 p-b80 bg-gray">
+        <div className="section-full mobile-page-padding p-t80  bg-gray">
           <div className="container">
             <div className="section-content">
               <div className="row">
-                <div className="col-xl-5 col-lg-5 col-md-12 ">
+                <div className="col-xl-6 col-lg-6 col-md-12 ">
                   <div
                     className="home-2-about bg-bottom-left bg-no-repeat bg-cover"
                     style={{ backgroundImage: "url(" + bgimg1 + ")" }}
@@ -18,12 +19,16 @@ class About2 extends React.Component {
                     title="Property Sale & Buy Marketplace"
                   ></div>
                 </div>
-                <div className="col-xl-7 col-lg-7 col-md-12">
+                <div className="col-xl-6 col-lg-6 col-md-12">
                   <div className="about-home-2">
-                    <h3 className="m-t0 sx-tilte">
-                      Property Sale & Buy Marketplace
+                    <h3
+                      className="m-t0 sx-tilte"
+                      style={{ marginBottom: 18 }}
+                    >
+                      About Us
                     </h3>
-                    <p style={{ whiteSpace: "pre-line", textAlign: "justify" }}>
+                    <p style={{ textAlign: "justify", marginBottom: 16 }}>
+                      At{" "}
                       <span
                         style={{
                           fontWeight: "700",
@@ -31,22 +36,39 @@ class About2 extends React.Component {
                           color: "#000",
                         }}
                       >
-                        At Infrio,
+                        Infrio Properties,
                       </span>{" "}
-                      we believe that every property holds value and every
-                      client deserves a smooth, transparent, and reliable real
-                      estate experience.Founded in 2014 by Mr. Rajesh Malav &
-                      Mrs. Pooja Malav, Infrio has built a strong reputation in
-                      architectural planning, construction, and infrastructure
-                      development across multiple cities.With years of
-                      experience in civil engineering, turnkey projects, and
-                      property development, Infrio is now expanding into the
-                      digital real estate sector with an advanced Property Sale
-                      & Buy Marketplace platform.The platform is designed to
-                      connect property sellers and buyers through a simple,
-                      modern, and enquiry-driven system. Our goal is to make
-                      property discovery, listing, and communication easier for
-                      users while maintaining trust and transparency."
+                      we believe that finding the right property should be
+                      simple, transparent, and stress-free. Whether you are
+                      looking to buy, sell, rent, or invest, our platform
+                      connects genuine property owners, buyers, and real estate
+                      professionals through a trusted and easy-to-use property
+                      marketplace.
+                    </p>
+                    <p style={{ textAlign: "justify", marginBottom: 16 }}>
+                      Backed by the expertise of{" "}
+                      <span style={{ fontWeight: "700", color: "#000" }}>
+                        Infrio India,
+                      </span>{" "}
+                      we bring together real estate, architecture, interior
+                      design, and construction under one ecosystem. This allows
+                      us to offer more than just property listings—we provide
+                      complete property solutions that help our customers make
+                      informed decisions with confidence.
+                    </p> 
+                    <p style={{ textAlign: "justify", marginBottom: 16 }}>
+                      Our platform features residential, commercial, and
+                      investment properties with a strong focus on authenticity,
+                      verified information, and direct connections between
+                      buyers and sellers. We are committed to creating a
+                      reliable property network where transparency,
+                      professionalism, and customer satisfaction come first.
+                    </p>
+                    <p style={{ textAlign: "justify", marginBottom: 16 }}>
+                      Whether it's your first home, a commercial space, a plot
+                      for future development, or an investment opportunity,
+                      Infrio Properties is here to help you at every step of the
+                      journey.
                     </p>
                     {/* <div className="text-left">
                                             <NavLink to={"/about-us"} className="site-button-link">Read More</NavLink>
@@ -55,6 +77,7 @@ class About2 extends React.Component {
                 </div>
               </div>
             </div>
+           
           </div>
         </div>
       </>

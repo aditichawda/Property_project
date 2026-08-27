@@ -544,7 +544,7 @@ export default function SellerPackages() {
                       style={{ marginTop: 24 }}
                       onClick={() => openPackagePurchase(pkg)}
                     >
-                      <span>Buy Now</span>
+                      <span>Subscribe Now</span>
                     </button>
                   </div>
                 );

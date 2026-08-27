@@ -53,7 +53,7 @@ class About1 extends React.Component {
             bgimage={bnrimg}
           />
           <About2 />
-          <SellerPackageSection />
+          
 
           <About3 bgcolor="bg-gray" />
           <About4 bgcolor="bg-gray" />

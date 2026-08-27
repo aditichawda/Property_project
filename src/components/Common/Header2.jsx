@@ -218,7 +218,7 @@ class Header2 extends React.Component {
             className={`sticky-header main-bar-wraper navbar-expand-lg${stickyNo ? " sticky-no" : ""}`}
           >
             <div className="main-bar">
-              <div className="container clearfix">
+              <div className="container">
                 <div className="logo-header-check">
                   <div className="logo-header-inner logo-header-one">
                     <NavLink to={"/"}>

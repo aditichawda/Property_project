@@ -4542,6 +4542,11 @@ input:checked + .slider:before {
   object-fit: contain;
 }
 
+.seller-package-subscribe-btn {
+  margin: 16px;
+  width: calc(100% - 32px);
+}
+
 .seller-package-compact-banner {
   min-height: 180px;
   padding: 28px 30px;

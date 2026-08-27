@@ -3,6 +3,8 @@ const u = (id, params) => `https://images.unsplash.com/${id}?auto=format&fit=cro
 export const PROPERTY_IMAGES = {
   hero1: require('../images/property/1.jpg'),
   hero2: require('../images/property/2.jpg'),
+  hero4: require('../images/property/images3.jpeg'),
+  hero5: require('../images/property/ourmission1.jpeg'),
   hero3: require('../images/property/3.jpg'),
 
   defaultbanner: require('../images/property/1.jpg'), // ← hero-1.jpg nahi hai to 1.jpg
