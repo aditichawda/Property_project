@@ -18,6 +18,7 @@ export const AUTH_ENDPOINTS = {
 
 export const SOLAR_API_BASE = `${API_BASE_V2}/property`;
 export const STAFF_PROFILE_API_BASE = `${API_BASE_V2}/solar`;
+export const SOLAR_PAYMENT_API_BASE = `${API_BASE_V2}/solar/payment`;
 
 export const SOLAR_ENDPOINTS = {
   INQUERY_STORE: `${SOLAR_API_BASE}/properties/inquiry/store`,
@@ -96,4 +97,8 @@ export const SOLAR_ENDPOINTS = {
   PACKAGES: `${SOLAR_API_BASE}/packages`,
   PACKAGE_PAYMENT_ORDER: `${SOLAR_API_BASE}/package/payment/order`,
   PACKAGE_PURCHASE: `${SOLAR_API_BASE}/package/purchase`,
+  /** Razorpay contract from Razorpay_Developer_API_Requirements Google Doc. */
+  PAYMENT_CREATE_ORDER: `${SOLAR_PAYMENT_API_BASE}/create-order`,
+  PAYMENT_VERIFY: `${SOLAR_PAYMENT_API_BASE}/verify`,
+  PAYMENT_STATUS: (purchaseId) => `${SOLAR_PAYMENT_API_BASE}/status/${purchaseId}`,
 };

@@ -113,6 +113,33 @@ export async function createPropertyPackagePaymentOrder({
   );
 }
 
+/** Contract from the supplied Razorpay Developer API Requirements document. */
+export async function createRazorpayOrder({ solarUserId, packageId }) {
+  const { data } = await axios.post(SOLAR_ENDPOINTS.PAYMENT_CREATE_ORDER, {
+    solar_user_id: solarUserId,
+    package_id: packageId,
+    payment_method: "razorpay",
+  });
+  if (!(data?.success && data?.data?.razorpay_order_id)) {
+    throw new Error(data?.message || "Razorpay order could not be created.");
+  }
+  return data;
+}
+
+export async function verifyRazorpayPayment(payload) {
+  const { data } = await axios.post(SOLAR_ENDPOINTS.PAYMENT_VERIFY, payload);
+  if (!(data?.success && (data?.data?.payment_status === "paid" || data?.data?.package_status === "active"))) {
+    throw new Error(data?.message || "Payment verification is pending or failed.");
+  }
+  return data;
+}
+
+export async function fetchRazorpayPaymentStatus(purchaseId) {
+  const { data } = await axios.get(SOLAR_ENDPOINTS.PAYMENT_STATUS(purchaseId));
+  if (!data?.success) throw new Error(data?.message || "Could not load payment status.");
+  return data;
+}
+
 export function loadRazorpayCheckout() {
   if (typeof window === "undefined") return Promise.resolve(false);
   if (window.Razorpay) return Promise.resolve(true);

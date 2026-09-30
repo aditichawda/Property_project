@@ -13,6 +13,9 @@ import {
 import {
   fetchPropertyPackages,
   purchasePropertyPackage,
+  createRazorpayOrder,
+  verifyRazorpayPayment,
+  loadRazorpayCheckout,
 } from "../../api/propertyPackages";
 import {
   fetchProperties,
@@ -80,6 +83,7 @@ export default function SellerPackages() {
   const [purchaseError, setPurchaseError] = useState("");
   const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
   const [purchaseSuccess, setPurchaseSuccess] = useState(null);
+  const [paymentMethod, setPaymentMethod] = useState("cod");
   const [packageHistory, setPackageHistory] = useState([]);
   const [historyLoading, setHistoryLoading] = useState(false);
   const [historyError, setHistoryError] = useState("");
@@ -169,6 +173,7 @@ export default function SellerPackages() {
 
     setPurchaseError("");
     setPurchaseConfirmed(false);
+    setPaymentMethod("cod");
     setPackageToConfirm(pkg);
   };
 
@@ -208,13 +213,47 @@ export default function SellerPackages() {
       } catch {
         existingPropertyCount = 0;
       }
-      const result = await purchasePropertyPackage({
-        propertyUserId,
-        packageId: pkg.id,
-        paymentMethod: "cod",
-      });
-      activatePurchasedPackage(pkg, result, existingPropertyCount);
-      await refreshPackageHistory();
+      if (paymentMethod === "razorpay") {
+        const checkoutReady = await loadRazorpayCheckout();
+        if (!checkoutReady) throw new Error("Razorpay Checkout could not be loaded.");
+        const orderResult = await createRazorpayOrder({ solarUserId: propertyUserId, packageId: pkg.id });
+        const order = orderResult.data;
+        await new Promise((resolve, reject) => {
+          const checkout = new window.Razorpay({
+            key: order.key_id || order.razorpay_key_id,
+            amount: order.amount,
+            currency: order.currency || "INR",
+            name: "Infrio Properties",
+            description: pkg.name,
+            order_id: order.razorpay_order_id,
+            handler: async (response) => {
+              try {
+                const verified = await verifyRazorpayPayment({
+                  solar_user_id: propertyUserId,
+                  purchase_id: order.purchase_id,
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature,
+                });
+                activatePurchasedPackage(pkg, verified, existingPropertyCount);
+                await refreshPackageHistory();
+                resolve();
+              } catch (error) { reject(error); }
+            },
+            modal: { ondismiss: () => reject(new Error("Payment was cancelled.")) },
+            theme: { color: "#f59e0b" },
+          });
+          checkout.open();
+        });
+      } else {
+        const result = await purchasePropertyPackage({
+          propertyUserId,
+          packageId: pkg.id,
+          paymentMethod: "cod",
+        });
+        activatePurchasedPackage(pkg, result, existingPropertyCount);
+        await refreshPackageHistory();
+      }
     } catch (error) {
       setPurchaseError(
         error?.response?.data?.message ||
@@ -360,10 +399,22 @@ export default function SellerPackages() {
                         type="radio"
                         name="packagePayment"
                         value="cod"
-                        checked
-                        readOnly
+                        checked={paymentMethod === "cod"}
+                        onChange={() => setPaymentMethod("cod")}
                       />
                       <span><strong>COD</strong><br /><small>Pay after confirmation</small></span>
+                    </label>
+                    <label
+                      style={{ display: "flex", gap: 10, padding: 14, border: "1px solid #e2e8f0", marginBottom: 18, cursor: "pointer" }}
+                    >
+                      <input
+                        type="radio"
+                        name="packagePayment"
+                        value="razorpay"
+                        checked={paymentMethod === "razorpay"}
+                        onChange={() => setPaymentMethod("razorpay")}
+                      />
+                      <span><strong>Razorpay</strong><br /><small>Pay securely online</small></span>
                     </label>
                     <div
                       style={{
@@ -396,7 +447,7 @@ export default function SellerPackages() {
                     >
                       {purchaseLoading
                         ? "Processing..."
-                        : "Submit COD Order"}
+                        : paymentMethod === "razorpay" ? "Pay with Razorpay" : "Submit COD Request"}
                     </button>
                   </section>
                 </div>
